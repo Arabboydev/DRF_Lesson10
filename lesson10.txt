@@ -1,0 +1,44 @@
+1. https://www.codewars.com/kata/5a043724ffe75fbab000009f/train/python
+def reverse_middle(lst):
+    
+    if len(lst) < 4:
+        raise ValueError("The list must contain at least four elements.")
+    mid = len(lst) // 2
+    if len(lst) % 2 == 0:
+        middle_elements = lst[mid-1:mid+1]
+    else:
+        middle_elements = lst[mid-1:mid+2]
+    return middle_elements[::-1]
+2.
+
+3. https://www.codewars.com/kata/5ac5e9aa3853da25d9000102/train/python
+def or_arrays(arr1, arr2, default=0):
+    max_length = max(len(arr1), len(arr2))
+    ext_arr1 = arr1 + [default] * (max_length - len(arr1))
+    ext_arr2 = arr2 + [default] * (max_length - len(arr2))
+    result = [ext_arr1[i] | ext_arr2[i] for i in range(max_length)]
+    
+    return result
+4. https://www.codewars.com/kata/563cf89eb4747c5fb100001b/train/python
+def remove_smallest(numbers):
+    if not numbers:
+        return []
+    min_value = min(numbers)
+    min_index = numbers.index(min_value)
+    
+    return numbers[:min_index] + numbers[min_index+1:]
+5. https://www.codewars.com/kata/5b011461de4c7f8d78000052/train/python
+def bear_fur(bears):
+    combinations = {
+        ('black', 'black'): 'black',
+        ('brown', 'brown'): 'brown',
+        ('white', 'white'): 'white',
+        ('black', 'brown'): 'dark brown',
+        ('brown', 'black'): 'dark brown', 
+        ('black', 'white'): 'grey',
+        ('white', 'black'): 'grey',       
+        ('brown', 'white'): 'light brown',
+        ('white', 'brown'): 'light brown' 
+    }
+    bears_tuple = tuple(bears)
+    return combinations.get(bears_tuple, 'unknown')
